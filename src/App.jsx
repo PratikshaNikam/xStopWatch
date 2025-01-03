@@ -23,7 +23,7 @@ function App() {
   }, [isRunning])
   
   const startStop = () => {
-    setIsRunning(isRunning => !isRunning);
+    setIsRunning((isRunning) => !isRunning);
   }
 
   const reset = () => {
@@ -33,7 +33,7 @@ function App() {
  
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
+    const remainingSeconds = seconds % 60;
 
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   }
@@ -41,7 +41,7 @@ function App() {
     <>
       <h1>Stopwatch</h1>  
 
-      <h2>Time:{formatTime(elapsedTime)}</h2>
+      <h2>Time: {formatTime(elapsedTime)}</h2>
 
       <button onClick={startStop}>{isRunning?"Stop":"Start"}</button>
       <button onClick={reset}>Reset</button>
